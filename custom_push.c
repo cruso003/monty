@@ -48,4 +48,3 @@ void _push(stack_t **head, unsigned int line_number)
 		addQueue(head, y);
 	}
 }
-
