@@ -3,9 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int stack_arr[MAX];
-int top = -1;
-MontyEnv_t env = {NULL, NULL, NULL, 0};
 /**
  * main - interpreter
  * @argc: argument numbers
@@ -14,12 +11,17 @@ MontyEnv_t env = {NULL, NULL, NULL, 0};
  */
 int main(int argc, char *argv[])
 {
+
+	MontyEnv_t env = {NULL, NULL, NULL, 0};
 	char *content;
 	FILE *file;
 	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
+
+	int stack_arr[MAX];
+	int top = -1;
 
 	if (argc != 2)
 	{
