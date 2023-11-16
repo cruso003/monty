@@ -1,44 +1,50 @@
 #include "monty.h"
+
 /**
- * _push - add node to the stack
- * @head: stack head
- * @line_number: line number
- * Return: no return
+ * handle_error - Helper function to handle errors
+ * @line_number: Int line
+ * @head: Head
+ */
+void handle_error(unsigned int line_number, stack_t **head)
+{
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	fclose(env.file);
+	free(env.content);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * _push - Func add node
+ * @head: Head
+ * @line_number: Int line
  */
 void _push(stack_t **head, unsigned int line_number)
 {
-	int n, j = 0, flag = 0;
+	size_t j;
+	int y;
 
-	if (env.arg)
+	if (!env.arg || !*env.arg)
 	{
-		if (env.arg[0] == '-')
-			j++;
-		for (; env.arg[j] != '\0'; j++)
+		handle_error(line_number, head);
+	}
+
+	for (j = (env.arg[0] == '-'); env.arg[j]; ++j)
+	{
+		if (!isdigit(env.arg[j]))
 		{
-			if (env.arg[j] > 57 || env.arg[j] < 48)
-				flag = 1;
-		}
-		if (flag == 1)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			fclose(env.file);
-			free(env.content);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
+			handle_error(line_number, head);
 		}
 	}
-	else
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		fclose(env.file);
-		free(env.content);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	n = atoi(env.arg);
+
+	y = atoi(env.arg);
+
 	if (env.lifi == 0)
-		addNode(head, n);
+	{
+		addNode(head, y);
+	}
 	else
-		addQueue(head, n);
+	{
+		addQueue(head, y);
+	}
 }
-

@@ -27,6 +27,8 @@ int exec(char *content, stack_t **stack, unsigned int line_number, FILE *file)
 		{"pstr", _pstr},
 		{"rotl", _rotl},
 		{"rotr", _rotr},
+		{"queue", _queue},
+		{"stack", _stack},
 		{NULL, NULL},
 	};
 	unsigned int i = 0;
