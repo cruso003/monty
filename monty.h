@@ -58,8 +58,6 @@ typedef struct MontyEnv
 } MontyEnv_t;
 
 extern MontyEnv_t env;
-extern int stack_arr[MAX];
-extern int top;
 
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);

@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-MontyEnv_t env = {NULL, NULL, NULL, 0};
+int main(int argc, char *argv[]);
+MontyEnv_t env;
+
 /**
  * main - interpreter
  * @argc: argument numbers
