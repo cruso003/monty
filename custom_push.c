@@ -10,7 +10,11 @@ void handle_error(unsigned int line_number, stack_t **head)
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	fclose(env.file);
 	free(env.content);
-	free_stack(*head);
+	if (*head != NULL)
+	{
+		free_stack(*head);
+	}
+
 	exit(EXIT_FAILURE);
 }
 
@@ -26,6 +30,11 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (!env.arg || !*env.arg)
 	{
+		if (*head == NULL)
+		{
+			return;
+		}
+
 		handle_error(line_number, head);
 	}
 
