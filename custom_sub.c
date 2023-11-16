@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  *_sub- Func sustration
- *@head: head
- *@line_number: line number
+ *@head: Head
+ *@line_number: Int line
  *Return: Null
  */
 void _sub(stack_t **head, unsigned int line_number)

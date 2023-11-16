@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * _pop - prints top
- * @head: head
- * @line_number: line number
- * Return: nothing
+ * _pop - Func prints the top
+ * @head: Head
+ * @line_number: Int line
+ * Return: Null
  */
 void _pop(stack_t **head, unsigned int line_number)
 {

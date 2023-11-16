@@ -1,13 +1,15 @@
 #include "monty.h"
+
+int exec(char *content, stack_t **stack, unsigned int line_number, FILE *file);
 /**
- * exec - executes the opcode
- * @stack: head linked list - stack
- * @counter: line_counter
- * @file: poiner to monty file
- * @content: line content
- * Return: no return
+ * exec - Func executes the opcode
+ * @stack: Stack head
+ * @line_number: Int line
+ * @file: Monty file
+ * @content: Content
+ * Return: Null
  */
-int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int exec(char *content, stack_t **stack, unsigned int line_number, FILE *file)
 {
 	instruction_t opst[] = {
 		{"push", _push},
@@ -22,6 +24,9 @@ int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		{"mul", _mul},
 		{"mod", _mod},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL},
 	};
 	unsigned int i = 0;
@@ -35,14 +40,14 @@ int exec(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
-			opst[i].f(stack, counter);
+			opst[i].f(stack, line_number);
 			return (0);
 		}
 		i++;
 	}
 	if (op && opst[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n\n", counter, op);
+		fprintf(stderr, "L%d: unknown instruction %s\n\n", line_number, op);
 		fclose(file);
 		free(content);
 		free_stack(*stack);

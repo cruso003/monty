@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
- * _mul - Func multiply the top two elements
- * @head: head
- * @line_number: line number
+ * _mul - Func multiply the top two elem.
+ * @head: Head
+ * @line_number: Int line
  * Return: Null
  */
 void _mul(stack_t **head, unsigned int line_number)

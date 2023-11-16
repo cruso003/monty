@@ -1,52 +1,52 @@
 #include "monty.h"
 
 /**
- * addNode - add node to the head stack
- * @head: head of the stack
- * @n: new_value
- * Return: no return
+ * addNode - Func adds node
+ * @head: Head
+ * @n: new value
+ * Return: Null
  */
 void addNode(stack_t **head, int n)
 {
-	stack_t *new_node, *aux;
+	stack_t *elem, *aux;
 
 	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	elem = malloc(sizeof(stack_t));
+	if (elem == NULL)
 	{
 		fprintf(stderr, "Error: Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
 
 	if (aux)
-		aux->prev = new_node;
+		aux->prev = elem;
 
-	new_node->n = n;
-	new_node->next = *head;
-	new_node->prev = NULL;
-	*head = new_node;
+	elem->n = n;
+	elem->next = *head;
+	elem->prev = NULL;
+	*head = elem;
 }
 
 /**
- * addQueue - add node to the tail stack
- * @head: head of the stack
- * @n: new_value
- * Return: no return
+ * addQueue - Func add node to the bottom
+ * @head: Head
+ * @n: new value
+ * Return: Null
  */
 void addQueue(stack_t **head, int n)
 {
-	stack_t *new_node, *aux;
+	stack_t *elem, *aux;
 
 	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	elem = malloc(sizeof(stack_t));
+	if (elem == NULL)
 	{
 		fprintf(stderr, "Error: Memory allocation failed\n");
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = n;
-	new_node->next = NULL;
+	elem->n = n;
+	elem->next = NULL;
 
 	if (aux)
 	{
@@ -56,12 +56,12 @@ void addQueue(stack_t **head, int n)
 
 	if (!aux)
 	{
-		*head = new_node;
-		new_node->prev = NULL;
+		*head = elem;
+		elem->prev = NULL;
 	}
 	else
 	{
-		aux->next = new_node;
-		new_node->prev = aux;
+		aux->next = elem;
+		elem->prev = aux;
 	}
 }

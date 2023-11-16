@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  * _div - Func divides the top two elements
- * @head: head
- * @line_number: line number
+ * @head: Head
+ * @line_number: Int line
  * Return: Null
  */
 void _div(stack_t **head, unsigned int line_number)

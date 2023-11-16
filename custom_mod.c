@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  * _mod - Func computes the division
- * @head: head
- * @line_number: line number
+ * @head: Head
+ * @line_number: Int line
  * Return: Null
  */
 void _mod(stack_t **head, unsigned int line_number)

@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * _pint - prints top
- * @head: head
- * @line_number: line number
- * Return: nothing
+ * _pint - Func prints top
+ * @head: Head
+ * @line_number: Int line
+ * Return: Null
  */
 void _pint(stack_t **head, unsigned int line_number)
 {

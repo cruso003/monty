@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * _pall - prints out the stack datas
- * @head: head
- * @line_number: void
- * Return: nothing
+ * _pall - Func prints stack info
+ * @head: Head
+ * @line_number: Int line
+ * Return: Null
  */
 void _pall(stack_t **head, unsigned int line_number)
 {

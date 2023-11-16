@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
  * _pchar - Func print character from the top
- * @head: head
- * @line_number: line number
+ * @head: Head
+ * @line_number: Int line
  * Return: Null
  */
 void _pchar(stack_t **head, unsigned int line_number)

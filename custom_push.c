@@ -2,8 +2,8 @@
 
 /**
  * handle_error - Helper function to handle errors
- * @line_number: Line number
- * @head: Stack head
+ * @line_number: Int line
+ * @head: Head
  */
 void handle_error(unsigned int line_number, stack_t **head)
 {
@@ -15,9 +15,9 @@ void handle_error(unsigned int line_number, stack_t **head)
 }
 
 /**
- * _push - Add node to the stack
- * @head: Stack head
- * @line_number: Line number
+ * _push - Func add node
+ * @head: Head
+ * @line_number: Int line
  */
 void _push(stack_t **head, unsigned int line_number)
 {
