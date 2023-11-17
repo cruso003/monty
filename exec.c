@@ -49,7 +49,7 @@ int exec(char *content, stack_t **stack, unsigned int line_number, FILE *file)
 	}
 	if (op && opst[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n\n", line_number, op);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 		fclose(file);
 		free(content);
 		free_stack(*stack);
