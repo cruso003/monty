@@ -1,22 +1,17 @@
 #include "monty.h"
+
 /**
- * _add - Func adds the top two elements
- * @head: Head
- * @line_number: Int line
- * Return: Null
+ * _add - Adds the top two elements of the stack
+ * @head: head
+ * @line_number: Int Line
  */
 void _add(stack_t **head, unsigned int line_number)
 {
-	stack_t *val;
-	int size = 0, auxiliary;
+	stack_t *first;
+	stack_t *second;
+	int sum;
 
-	val = *head;
-	while (val)
-	{
-		val = val->next;
-		size++;
-	}
-	if (size < 2)
+	if (*head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		fclose(env.file);
@@ -24,9 +19,12 @@ void _add(stack_t **head, unsigned int line_number)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	val = *head;
-	auxiliary = val->n + val->next->n;
-	val->next->n = auxiliary;
-	*head = val->next;
-	free(val);
+
+	first = *head;
+	second = first->next;
+	sum = first->n + second->n;
+
+	second->n = sum;
+	*head = second;
+	free(first);
 }
